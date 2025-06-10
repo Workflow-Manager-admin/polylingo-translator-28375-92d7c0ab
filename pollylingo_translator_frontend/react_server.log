@@ -11,8 +11,8 @@ asset bundle.js 1.4 MiB [emitted] (name: main)
 asset index.html 1.92 KiB [emitted]
 runtime modules 27.5 KiB 14 modules
 modules by path ./node_modules/ 1.24 MiB 31 modules
-modules by path ./src/ 13.6 KiB
-  modules by path ./src/*.css 9.79 KiB 4 modules
+modules by path ./src/ 15.4 KiB
+  modules by path ./src/*.css 11.6 KiB 4 modules
   modules by path ./src/*.js 3.83 KiB
     ./src/index.js 530 bytes [built] [code generated]
     ./src/App.js 3.31 KiB [built] [code generated]
@@ -22,14 +22,24 @@ modules by path ./.ve/ 15.1 KiB
     ./.ve/EditorOverlay.css 2.25 KiB [built] [code generated]
     ./node_modules/css-loader/dist/cjs.js!./.ve/EditorOverlay.css 697 bytes [built] [code generated]
   ./.ve/EditorOverlay.jsx 1.58 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 1491 ms
+webpack 5.99.9 compiled successfully in 1514 ms
 assets by status 1.92 KiB [cached] 1 asset
-assets by path *.js 1.41 MiB
-  asset bundle.js 1.4 MiB [emitted] (name: main)
-  asset main.2ed8557f51effd6d3741.hot-update.js 8.93 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.2ed8557f51effd6d3741.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.41 MiB = bundle.js 1.4 MiB main.2ed8557f51effd6d3741.hot-update.js 8.93 KiB
-cached modules 1.26 MiB [cached] 41 modules
+assets by path *.js 1.51 MiB
+  asset bundle.js 1.45 MiB [emitted] (name: main)
+  asset main.7db1e836007009ee94e3.hot-update.js 62.2 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.7db1e836007009ee94e3.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.51 MiB = bundle.js 1.45 MiB main.7db1e836007009ee94e3.hot-update.js 62.2 KiB
+cached modules 1.27 MiB [cached] 41 modules
 runtime modules 27.5 KiB 14 modules
-./node_modules/css-loader/dist/cjs.js!./src/App.css 6.27 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 75 ms
+javascript modules 48.9 KiB
+  modules by path ./node_modules/ 36.1 KiB
+    modules by path ./node_modules/prop-types/*.js 26.7 KiB 3 modules
+    modules by path ./node_modules/prop-types/node_modules/react-is/ 7.01 KiB 2 modules
+    modules by path ./node_modules/prop-types/lib/*.js 384 bytes 2 modules
+    ./node_modules/object-assign/index.js 2.06 KiB [built] [code generated]
+  modules by path ./src/*.js 12.8 KiB
+    ./src/App.js 4.25 KiB [built] [code generated]
+    ./src/TextInput.js 1.77 KiB [built] [code generated]
+    ./src/VoiceInput.js 5.25 KiB [built] [code generated]
+    ./src/ModeToggle.js 1.52 KiB [built] [code generated]
+webpack 5.99.9 compiled successfully in 231 ms

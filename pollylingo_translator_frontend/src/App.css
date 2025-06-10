@@ -1,13 +1,43 @@
+/* === PolyLingo Translator: Modern Accessible Palette & Responsive CSS === */
 :root {
+  /* Brand Palette */
   --primary: #2D6A4F;
   --secondary: #40916C;
   --accent: #FFD166;
+
   --kavia-dark: #1A1A1A;
   --kavia-gray: #22272B;
-  --text-color: #23281F;
-  --text-secondary: #70816D;
-  --border-color: rgba(44,50,55,0.13);
+
+  /* Accessible text distinction */
+  --text-color: #22252a; /* Off-black, for readability */
+  --text-secondary: #5c6f60;
+  --text-link: #1967d2;
+  --danger: #e53a3a;
+
+  /* Surfaces/Backgrounds */
   --surface: #fcfff9;
+  --surface-alt: #f7fdfb;
+
+  /* Borders, outlines */
+  --border-color: rgba(44,50,55,0.13);
+  --focus-outline: #FFD166;
+  --focus-outline-dark: #22272B;
+
+  /* Button gradients */
+  --btn-gradient: linear-gradient(90deg, #2D6A4F 80%, #FFD166 100%);
+}
+
+/* Preferred modern accessible font stack */
+body {
+  margin: 0;
+  font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, 'Segoe UI', system-ui, sans-serif;
+  background-color: var(--surface);
+  color: var(--text-color);
+  font-size: 17px;
+  line-height: 1.62;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -24,12 +54,13 @@ body {
   display: flex;
   flex-direction: column;
   background: var(--surface);
+  font-family: inherit;
 }
 
 .navbar {
-  background: linear-gradient(90deg, var(--primary) 80%, var(--accent) 100%);
+  background: var(--btn-gradient);
   color: #fff;
-  padding: 0 0 0 0;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,7 +71,14 @@ body {
   min-height: 64px;
   box-sizing: border-box;
   z-index: 100;
-  box-shadow: 0 1px 12px rgba(45, 106, 79, 0.07);
+  box-shadow: 0 1px 12px rgba(45, 106, 79, 0.085);
+}
+
+/* Focus outline for navigation bar links/interactive */
+.navbar :focus-visible {
+  outline: 2.5px dashed var(--focus-outline);
+  outline-offset: 2px;
+  background: #29292919;
 }
 
 .container {
@@ -49,6 +87,13 @@ body {
   padding: 0 24px;
   width: 100%;
   box-sizing: border-box;
+}
+
+/* Always show visible focus for all keyboard users */
+*:focus-visible {
+  outline: 2.5px solid var(--focus-outline);
+  outline-offset: 2px;
+  transition: outline 0.1s;
 }
 
 .nav-content {
@@ -64,21 +109,25 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
+  color: #fff;
 }
 
 .brand-main {
-  font-family: 'Inter', 'Roboto', 'Helvetica', Arial, sans-serif;
-  letter-spacing: -0.1px;
+  font-family: inherit;
+  font-weight: 900;
+  letter-spacing: -0.15px;
   color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.12);
 }
 
 .brand-sub {
   font-size: 1rem;
-  opacity: 0.7;
-  font-weight: 400;
+  opacity: 0.87;
+  font-weight: 500;
   letter-spacing: 0.03em;
   color: #fafafae0;
+  text-shadow: 0 1px 8px rgba(45,106,79,0.15);
 }
 
 .logo-symbol {
@@ -139,13 +188,29 @@ body {
   width: 100%;
   background: #fff;
   border-radius: 14px;
-  box-shadow: 0 2px 28px 0 rgba(45,106,79,0.09);
+  box-shadow: 0 2px 28px 0 rgba(45, 106, 79, 0.12);
   padding: 32px 20px 28px 20px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   gap: 24px;
   min-height: 130px;
+  /* ARIA live-focus: visually highlight when results update */
+  transition: box-shadow 0.12s, border-color 0.17s;
+}
+
+/* --- Translation Results Accessibility --- */
+.translation-results {
+  width: 100%;
+}
+
+.translation-card {
+  /* Style needed for JS-created focusable output cards; rest inline, but ref here for focus below */
+}
+.translation-card:focus-visible {
+  outline: 3px solid var(--accent);
+  box-shadow: 0 2px 10px rgba(64,145,108,0.12);
+  background: #fffbe1;
 }
 
 /* --- LanguageSelect --- */
@@ -180,10 +245,11 @@ body {
   min-width: 132px;
   outline: none;
   color: var(--text-color);
-  transition: border 0.14s;
+  transition: border 0.14s, box-shadow 0.1s;
 }
-.lang-dropdown:focus {
-  border-color: var(--secondary);
+.lang-dropdown:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--focus-outline);
   background: #fffbe1;
 }
 .lang-dropdown[multiple] {
@@ -193,10 +259,10 @@ body {
 .lang-multiselect-hint {
   font-size: 0.92em;
   color: var(--text-secondary);
-  opacity: 0.7;
+  opacity: 0.8;
   margin-left: 7px;
   align-self: flex-end;
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 /* --- ModeToggle --- */
@@ -249,13 +315,27 @@ body {
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.17s;
-  box-shadow: 0 1px 4px rgba(64,145,108,0.09);
+  transition: background 0.17s, box-shadow 0.13s;
+  box-shadow: 0 1px 4px rgba(64,145,108,0.10);
+  position: relative;
 }
 
-.btn:focus,
-.btn:hover {
+.btn:focus-visible {
+  outline: 3px solid var(--accent);
   background: var(--secondary);
+  color: #fff;
+  box-shadow: 0 0 0 4px #ffeec1;
+  z-index: 1;
+}
+
+.btn:hover, .btn:focus {
+  background: var(--secondary);
+}
+
+.btn[aria-disabled="true"], .btn:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+  filter: grayscale(0.2);
 }
 
 .btn-large {
@@ -280,27 +360,45 @@ body {
     border-radius: 10px;
     min-width: 0;
   }
+  .translation-card {
+    padding: 8px 5px;
+    font-size: 1em;
+  }
 }
+
 @media (max-width: 600px) {
   .main-container {
-    margin-top: 72px;
-    gap: 24px;
+    margin-top: 65px;
+    gap: 18px;
   }
   .navbar {
-    min-height: 52px;
+    min-height: 48px;
     padding: 0;
   }
   .logo {
-    font-size: 1.12rem;
-    gap: 7px;
+    font-size: 1rem;
+    gap: 6px;
   }
   .brand-sub {
     font-size: 0.91rem;
   }
   .input-section,
   .results-section {
-    padding: 11px 2vw 10px 2vw;
+    padding: 9px 2vw 7px 2vw;
+  }
+  .translation-card {
+    font-size: 0.96em;
+    padding: 7px 3px;
   }
 }
 
-/* End of file - no stray colons or selectors */
+/* === Accessibility: visually hide but stay accessible to screen readers === */
+.sr-only {
+  position: absolute !important;
+  left: -9999px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}

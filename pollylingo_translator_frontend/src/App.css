@@ -1,0 +1,215 @@
+:root {
+  --primary: #2D6A4F;
+  --secondary: #40916C;
+  --accent: #FFD166;
+  --kavia-dark: #1A1A1A;
+  --kavia-gray: #22272B;
+  --text-color: #23281F;
+  --text-secondary: #70816D;
+  --border-color: rgba(44,50,55,0.13);
+  --surface: #fcfff9;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background-color: var(--surface);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+}
+
+.navbar {
+  background: linear-gradient(90deg, var(--primary) 80%, var(--accent) 100%);
+  color: #fff;
+  padding: 0 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1.5px solid var(--border-color);
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  min-height: 64px;
+  box-sizing: border-box;
+  z-index: 100;
+  box-shadow: 0 1px 12px rgba(45, 106, 79, 0.07);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: 0.05em;
+}
+
+.brand-main {
+  font-family: 'Inter', 'Roboto', 'Helvetica', Arial, sans-serif;
+  letter-spacing: -0.1px;
+  color: #fff;
+}
+
+.brand-sub {
+  font-size: 1rem;
+  opacity: 0.7;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: #fafafae0;
+}
+
+.logo-symbol {
+  color: var(--accent);
+  font-size: 1.6em;
+  font-weight: 800;
+}
+
+/* ---- Main content layout ---- */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+  margin-top: 86px;
+  gap: 48px;
+  padding-bottom: 56px;
+}
+
+/* Input section with stack styling */
+.input-section {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 22px 0 rgba(64,145,108,0.07);
+  border-radius: 14px;
+  padding: 38px 22px 32px 22px;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Placeholders for subcomponents */
+.placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #f7fdfb 90%, #ffeec1 100%);
+  border: 1.5px dashed var(--secondary);
+  border-radius: 10px;
+  min-height: 56px;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.placeholder-label {
+  font-size: 1.07rem;
+  opacity: 0.93;
+  font-style: italic;
+}
+.placeholder-language-select { min-height: 44px; }
+.placeholder-input { min-height: 78px; }
+.placeholder-toggle { min-height: 40px; }
+.placeholder-results { min-height: 110px; background: #fafbf8; border-style: dotted; margin-top: 0.85em; }
+
+.results-section {
+  width: 100%;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 28px 0 rgba(45,106,79,0.09);
+  padding: 32px 20px 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 24px;
+  min-height: 130px;
+}
+
+/* Buttons */
+.btn {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.17s;
+  box-shadow: 0 1px 4px rgba(64,145,108,0.09);
+}
+
+.btn:focus,
+.btn:hover {
+  background: var(--secondary);
+}
+
+.btn-large {
+  padding: 12px 30px;
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .container {
+    padding: 0 10px;
+  }
+  .main-container {
+    margin-top: 82px;
+    gap: 32px;
+    padding-bottom: 18px;
+  }
+  .input-section,
+  .results-section {
+    padding: 17px 4vw 12px 4vw;
+    border-radius: 10px;
+    min-width: 0;
+  }
+}
+@media (max-width: 600px) {
+  .main-container {
+    margin-top: 72px;
+    gap: 24px;
+  }
+  .navbar {
+    min-height: 52px;
+    padding: 0;
+  }
+  .logo {
+    font-size: 1.12rem;
+    gap: 7px;
+  }
+  .brand-sub {
+    font-size: 0.91rem;
+  }
+  .input-section,
+  .results-section {
+    padding: 11px 2vw 10px 2vw;
+  }
+}
+
+/* End of file - no stray colons or selectors */

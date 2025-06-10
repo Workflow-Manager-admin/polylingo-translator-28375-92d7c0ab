@@ -5,6 +5,7 @@ import VoiceInput from './VoiceInput';
 import ModeToggle from './ModeToggle';
 import LanguageSelect from './LanguageSelect';
 import { translateText } from './translationAPI';
+import TranslationResults from './TranslationResults';
 
 // PUBLIC_INTERFACE
 function App() {
@@ -111,29 +112,8 @@ function App() {
             )}
           </form>
           <section className="results-section">
-            {/* Results placeholder replaced with actual translations */}
             {Object.keys(translations).length > 0 ? (
-              <div className="translation-results" role="region" aria-live="polite">
-                {Object.entries(translations).map(([lang, text]) => (
-                  <div
-                    key={lang}
-                    style={{
-                      background: "#f7fdfb",
-                      borderLeft: "5px solid var(--secondary)",
-                      borderRadius: 7,
-                      marginBottom: 17,
-                      padding: "14px 11px",
-                      boxShadow: "0 1px 3px rgba(45,106,79,0.05)",
-                      fontSize: "1.10em"
-                    }}
-                  >
-                    <div style={{ fontWeight: 600, color: "var(--primary)", marginBottom: 4 }}>
-                      {lang.toUpperCase()}
-                    </div>
-                    <div>{text}</div>
-                  </div>
-                ))}
-              </div>
+              <TranslationResults translations={translations} />
             ) : (
               <div className="placeholder placeholder-results">
                 <span className="placeholder-label">[ Translation Results Placeholder ]</span>
